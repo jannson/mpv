@@ -420,6 +420,12 @@ FFmpeg libraries. Git master is recommended."
         'func': check_statement(['libavformat/avio.h'],
                                 '(struct AVIOContext){ 0 }.bytes_read = 7357',
                                 use=['ffmpeg']),
+    }, {
+        'name': '--fftools',
+        'desc': 'fftools for ffmpeg binary',
+        'func': check_pkg_config("libfftools"),
+        'req': True,
+        'fmsg': "Unable to find development files for some of the required."
     }
 ]
 

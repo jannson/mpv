@@ -43,8 +43,16 @@ static void microsoft_nonsense(void)
         pSetSearchPathMode(BASE_SEARCH_PATH_ENABLE_SAFE_SEARCHMODE);
 }
 
+extern int ffmpeg_main(int argc_, char **argv_);
+
 int main(int argc_, char **argv_)
 {
+    // check env
+    char *running_mode = getenv("media_running_mode");
+    if ((NULL != running_mode) && (0 == strcmp(running_mode, "run_ffmpeg"))) {
+        return ffmpeg_main(argc_, argv_);
+    }
+
     microsoft_nonsense();
 
     // If started from the console wrapper (see osdep/win32-console-wrapper.c),
