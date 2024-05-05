@@ -447,6 +447,12 @@ FFmpeg libraries. Git master is recommended."
         'name': '--libavdevice',
         'desc': 'libavdevice',
         'func': check_pkg_config('libavdevice', '>= 58.13.100'),
+    }, {
+        'name': '--fftools',
+        'desc': 'fftools for ffmpeg binary',
+        'func': check_pkg_config("libfftools"),
+        'req': True,
+        'fmsg': "Unable to find development files for some of the required."
     }
 ]
 
